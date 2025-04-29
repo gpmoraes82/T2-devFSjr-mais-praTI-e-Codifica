@@ -7,7 +7,7 @@ let selector = undefined;
 let num1 = 0;
 let num2 = 0;
 
-while (selector !== 0){
+while (selector !== 0) {
 
     console.log(`
         1. Escreva um programa que recebe um número inteiro e verifica se ele é par ou ímpar utilizando uma estrutura de controle if.
@@ -31,20 +31,47 @@ while (selector !== 0){
         15. Escreva um programa que gera e imprime os primeiros 10 números da sequência de Fibonacci utilizando um loop for.
         `);
 
-    // selector = Number(readline.question("Digite o numero do exercicio que deseja verificar/validar: "));
-    selector = Number(prompt("Digite o numero do exercicio que deseja verificar/validar: "));
+    selector = Number(prompt("Digite o número do exercício que deseja verificar/válidar: "));
 
     switch (selector) {
         case 1:
             // Lógica para verificar se o número é par ou ímpar
+
             num1 = Number(prompt('Verifique se o número é par ou ímpar: '));
             (num1 % 2 === 0) ? console.log(`${num1} é PAR`) : console.log(`${num1} é IMPAR`);
             break;
+
         case 2:
             // Classificar idade em categorias
+            
+            num1 = Number(prompt('Digite uma idade: '));
+
+            if (num1 >= 0 && num1 <= 12) {
+                console.log(`${num1} é criança`);
+            } else if (num1 >= 13 && num1 <= 17) {
+                console.log(`${num1} é adolescente`);
+            } else if (num1 >= 18 && num1 <= 64) {
+                console.log(`${num1} é adulto`);
+            } else if (num1 > 64) {
+                console.log(`${num1} é idoso`);
+            } else {
+                console.log("Idade não existe!");
+            }
             break;
+
         case 3:
             // Classificar nota como Aprovado, Recuperação ou Reprovado
+            
+            num1 = Number(prompt('Digite uma nota de 0 a 10: '));
+
+            if (num1 >= 0 && num1 <= 3.9) {
+                console.log(`${num1} Reprovado`);
+            } else if (num1 >= 4 && num1 <= 6.9) {
+                console.log(`${num1} Recuperação`);
+            } else if (num1 >= 6.9 && num1 <=10) {
+                console.log(`${num1} Aprovado`);
+            } else console.log("Nota fora do padrão!");
+
             break;
         case 4:
             // Menu interativo com 3 opções
@@ -87,5 +114,5 @@ while (selector !== 0){
             break;
     }
 
-    if(selector !== 0) selector = Number(prompt("\n1-Listar exercícicos novamente ou 0-Sair: "));
+    if (selector !== 0) selector = Number(prompt("\n1-Listar exercícicos novamente ou 0-Sair: "));
 }
