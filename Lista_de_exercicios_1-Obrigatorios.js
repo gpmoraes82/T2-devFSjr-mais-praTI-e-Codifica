@@ -6,6 +6,7 @@ const prompt = require('prompt-sync')({ sigint: true });
 let selector = undefined;
 let num1 = 0;
 let num2 = 0;
+let num3 = 0;
 
 while (selector !== 0) {
 
@@ -17,12 +18,14 @@ while (selector !== 0) {
     \x1b[33m3.\x1b[0m Implemente um programa que recebe uma nota de 0 a 10 e classifica como "Aprovado", "Recuperação", ou "Reprovado" utilizando if-else if.
     \x1b[33m4.\x1b[0m Crie um menu interativo no console que oferece ao usuário a escolha de três opções. Utilize switch-case para implementar a lógica de cada opção selecionada.
     \x1b[33m5.\x1b[0m Escreva um programa que calcula o Índice de Massa Corporal (IMC) de uma pessoa e determina a categoria de peso (baixo peso, peso normal, sobrepeso, obesidade) utilizando if-else.
-    \x1b[33m6.\x1b[0m Ler três valores para os lados de um triângulo: A, B e C. Verificar se os lados fornecidos formam realmente um triângulo. Caso forme, deve ser indicado o tipo de triângulo: Isósceles, escaleno ou eqüilátero.
-    Para verificar se os lados fornecem um triângulo: A < B + C e B < A + C e C < A + B
-    Triângulo isósceles: possui dois lados iguais (A=B ou A=C ou B=C)
-    Triângulo escaleno: possui todos os lados diferentes (A≠B e B≠C)
-    Triângulo eqüilátero: possui todos os lados iguais (A=B e B=C)
-    \x1b[33m7.\x1b[0m As maçãs custam R$ 0,30 se forem compradas menos do que uma dúzia, e R$ 0,25 se forem compradas pelo menos doze. Escreva um algoritmo que leia o número de maçãs compradas, calcule e escreva o valor total da compra.
+    \x1b[33m6.\x1b[0m Ler três valores para os lados de um triângulo: A, B e C. Verificar se os lados fornecidos formam realmente um triângulo. 
+       Caso forme, deve ser indicado o tipo de triângulo: Isósceles, escaleno ou eqüilátero.
+        - Para verificar se os lados fornecem um triângulo: A < B + C e B < A + C e C < A + B
+        - Triângulo isósceles: possui dois lados iguais (A=B ou A=C ou B=C)
+        - Triângulo escaleno: possui todos os lados diferentes (A≠B e B≠C)
+        - Triângulo eqüilátero: possui todos os lados iguais (A=B e B=C)
+    \x1b[33m7.\x1b[0m As maçãs custam R$ 0,30 se forem compradas menos do que uma dúzia, e R$ 0,25 se forem compradas pelo menos doze.
+       Escreva um algoritmo que leia o número de maçãs compradas, calcule e escreva o valor total da compra.
     \x1b[33m8.\x1b[0m Escreva um algoritmo para ler 2 valores (considere que não serão lidos valores iguais) e escrevê-los em ordem crescente.
     \x1b[33m9.\x1b[0m Implemente um programa que exibe uma contagem regressiva de 10 até 1 no console utilizando um loop for.
     \x1b[33m10.\x1b[0m Escreva um algoritmo para ler um número inteiro e escrevê-lo na tela 10 vezes.
@@ -35,7 +38,7 @@ while (selector !== 0) {
     `);
 
     selector = Number(prompt(`    Digite o número do exercício que deseja verificar/válidar: `));
-    
+
     console.clear();
 
     switch (selector) {
@@ -126,6 +129,34 @@ while (selector !== 0) {
             break;
         case 6:
             // Verificar tipo de triângulo
+            console.log(`Digite 3 tamanhos de lado para formar um triângulo.`);
+            num1 = Number(prompt(`Digite o lado A: `));
+            num2 = Number(prompt(`Digite o lado B: `));
+            num3 = Number(prompt(`Digite o lado C: `));
+
+            let triangulo = NaN;
+
+            if((num1 < (num2 + num3)) && (num2 < (num1 + num3)) && (num3 < (num1 + num2))){
+                if((num1 == num2) || (num1 == num3) || (num2 == num3)) triangulo = 1;
+                if((num1 != num2) && (num2 != num3)) triangulo = 2;
+                if((num1 == num2) && (num2 == num3)) triangulo = 3;
+            } 
+
+            switch (triangulo) {
+                case 1:
+                    console.log(`Triângulo isósceles.`);
+                    break;
+                case 2:
+                    console.log(`Triângulo escaleno.`);
+                    break;
+                case 3:
+                    console.log(`Triângulo eqüilátero`);
+                    break;
+                default: console.log(`Não é um triângulo válido.`)
+                    break;
+            }
+            console.log(`\n`);
+
             break;
         case 7:
             // Calcular valor da compra de maçãs
@@ -183,6 +214,7 @@ while (selector !== 0) {
 
         default:
             // Caso o valor não esteja entre 1 e 15
+            console.log(`${selector} esta opção não existe.`);
             console.log(`\n`);
 
             break;
