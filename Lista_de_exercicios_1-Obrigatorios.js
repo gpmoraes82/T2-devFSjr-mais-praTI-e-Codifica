@@ -1,9 +1,13 @@
 //Arquivo "main"
 // a partir deste .js acessaremos todos os demais exercicios
 
-const readline = require('readline-sync');
+const prompt = require('prompt-sync')({ sigint: true });
 
-do {
+let selector = undefined;
+let num1 = 0;
+let num2 = 0;
+
+while (selector !== 0){
 
     console.log(`
         1. Escreva um programa que recebe um número inteiro e verifica se ele é par ou ímpar utilizando uma estrutura de controle if.
@@ -27,11 +31,14 @@ do {
         15. Escreva um programa que gera e imprime os primeiros 10 números da sequência de Fibonacci utilizando um loop for.
         `);
 
-    let selector = Number(readline.question("Digite o numero do exercicio que deseja verificar/validar: "));
+    // selector = Number(readline.question("Digite o numero do exercicio que deseja verificar/validar: "));
+    selector = Number(prompt("Digite o numero do exercicio que deseja verificar/validar: "));
 
     switch (selector) {
         case 1:
             // Lógica para verificar se o número é par ou ímpar
+            num1 = Number(prompt('Verifique se o número é par ou ímpar: '));
+            (num1 % 2 === 0) ? console.log(`${num1} é PAR`) : console.log(`${num1} é IMPAR`);
             break;
         case 2:
             // Classificar idade em categorias
@@ -80,5 +87,5 @@ do {
             break;
     }
 
-
-} while (selector !== 0);
+    if(selector !== 0) selector = Number(prompt("\n1-Listar exercícicos novamente ou 0-Sair: "));
+}
