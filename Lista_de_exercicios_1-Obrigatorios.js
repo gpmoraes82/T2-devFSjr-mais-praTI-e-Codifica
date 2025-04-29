@@ -32,7 +32,7 @@ while (selector !== 0) {
     \x1b[33m14.\x1b[0m Crie um programa que calcula o fatorial de um número fornecido pelo usuário utilizando um loop for ou while.
     \x1b[33m15.\x1b[0m Escreva um programa que gera e imprime os primeiros 10 números da sequência de Fibonacci utilizando um loop for.
     \x1b[31m0.\x1b[0m Sair.
-        `);
+    `);
 
     selector = Number(prompt(`    Digite o número do exercício que deseja verificar/válidar: `));
     
@@ -42,15 +42,15 @@ while (selector !== 0) {
         case 1:
             // Lógica para verificar se o número é par ou ímpar
 
-            num1 = Number(prompt(`    Verifique se o número é par ou ímpar: `));
-            (num1 % 2 === 0) ? console.log(`    ${num1} é PAR`) : console.log(`    ${num1} é IMPAR`);
+            num1 = Number(prompt(`Verifique se o número é par ou ímpar: `));
+            (num1 % 2 === 0) ? console.log(`${num1} é PAR`) : console.log(`${num1} é IMPAR`);
             console.log(`\n`);
 
             break;
         case 2:
             // Classificar idade em categorias
 
-            num1 = Number(prompt(`  Digite uma idade: `));
+            num1 = Number(prompt(`Digite uma idade: `));
 
             if (num1 >= 0 && num1 <= 12) {
                 console.log(`${num1} é criança`);
@@ -85,7 +85,7 @@ while (selector !== 0) {
             // Menu interativo com 3 opções
 
             console.log(`Escolha qual deseja rolar 2.Uma moeda | 4. Um dado de 4 lados | 6. Um dados de 6 lados:`);
-            num1 = Number(prompt(`Digita o número do item que deseja rolar: `));
+            num1 = Number(prompt(`Digite o número do item que deseja rolar: `));
 
             switch (num1) {
                 case 2:
@@ -103,6 +103,24 @@ while (selector !== 0) {
             break;
         case 5:
             // Calcular IMC e classificar peso
+            num1 = Number(prompt(`Digite o seu peso (em kg): `));
+            num2 = Number(prompt(`Digite a sua altura (em metros): `));
+            let imc = num1 / (num2 * num2);
+
+            if (imc < 18.5) {
+                console.log('Abaixo do peso.');
+            } else if (imc >= 18.5 && imc <= 24.9) {
+                console.log('Peso normal.');
+            } else if (imc >= 25 && imc <= 29.9) {
+                console.log('Sobrepeso.');
+            } else if (imc >= 30 && imc <= 34.9) {
+                console.log('Obesidade grau 1.');
+            } else if (imc >= 35 && imc <= 39.9) {
+                console.log('Obesidade grau 2.');
+            } else {
+                console.log('Obesidade grau 3.');
+            }
+
             console.log(`\n`);
 
             break;
