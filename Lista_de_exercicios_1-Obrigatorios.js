@@ -210,41 +210,42 @@ while (selector !== 0) {
 
         case 11:
             // Somar 5 números fornecidos
+            console.log(`Realize a soma de 5 números`);
+            num1 = Number(prompt(`Digite um número : `));
+            for(let i = 4; i > 0; i--){
+                num1 += Number(prompt(`Digite um novo número : `));
+            }
+            console.log(`A soma é: ${num1}`);
+            
             console.log(`\n`);
 
             break;
-
         case 12:
             // Tabuada de um número
             console.log(`\n`);
 
             break;
-
         case 13:
             // Média de números decimais até digitar 0
             console.log(`\n`);
 
             break;
-
         case 14:
             // Calcular fatorial
             console.log(`\n`);
 
             break;
-
         case 15:
             // Gerar sequência de Fibonacci
             console.log(`\n`);
 
             break;
-
         default:
             // Caso o valor não esteja entre 1 e 15
             console.log(`${selector} esta opção não existe.`);
             console.log(`\n`);
-
+            
             break;
-
     }
 
     if (selector !== 0) selector = Number(prompt(`\x1b[33m1.\x1b[0m Listar exercícicos novamente ou \x1b[31m0.\x1b[0m Sair: `));
