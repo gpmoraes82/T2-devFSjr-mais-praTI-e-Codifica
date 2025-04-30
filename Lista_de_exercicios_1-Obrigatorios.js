@@ -240,14 +240,14 @@ while (selector !== 0) {
 
             num2 = 0;
             num3 = 0;
-            do{
+            do {
                 num1 = Number(prompt(`Digite um novo número : `));
 
                 num3 += num1;
                 num2++;
             } while (num1 !== 0);
 
-            console.log(`A soma é: ${num3/(num2-1)}`);
+            console.log(`A soma é: ${num3 / (num2 - 1)}`);
             console.log(`\n`);
 
             break;
@@ -255,7 +255,7 @@ while (selector !== 0) {
             // Calcular fatorial
             num1 = Number(prompt("Digite um número para calcular o seu fatorial: "));
             num2 = num1;
-            for (let i = num1-1; i >= 1; i--) {
+            for (let i = num1 - 1; i >= 1; i--) {
                 num2 *= i;
             }
             console.log(`Fatorial de ${num1}! é ${num2}`);
@@ -264,12 +264,23 @@ while (selector !== 0) {
             break;
         case 15:
             // Gerar sequência de Fibonacci
+            let num1 = 0;
+            let num2 = 1;
+
+            console.log('Sequência de Fibonacci (10 primeiros números):');
+            for (let i = 0; i < 10; i++) {
+                console.log(num1);
+
+                num3 = num1 + num2; // soma para o próximo número da sequência
+                num1 = num2;        // atribui o próximo número a ser mostrado da sequência
+                num2 = num3;        // atribui a próximo número a ser somado
+            }
             console.log(`\n`);
 
             break;
         default:
             // Caso o valor não esteja entre 1 e 15
-            if(selector !== 0) {
+            if (selector !== 0) {
                 console.log(`${selector} esta opção não existe.`);
                 console.log(`\n`);
             }
@@ -277,6 +288,9 @@ while (selector !== 0) {
             break;
     }
 
-    if (selector !== 0) selector = Number(prompt(`\x1b[33m1.\x1b[0m Listar exercícicos novamente ou \x1b[31m0.\x1b[0m Sair: `));
+    if (selector !== 0) {
+        selector = Number(prompt(`\x1b[33m1.\x1b[0m Listar exercícicos novamente ou \x1b[31m0.\x1b[0m Sair: `));
+        console.clear();
+    }
 
 }
