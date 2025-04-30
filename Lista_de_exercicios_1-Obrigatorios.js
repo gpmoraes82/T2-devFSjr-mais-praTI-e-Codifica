@@ -199,6 +199,11 @@ while (selector !== 0) {
 
         case 10:
             // Escrever um número inteiro 10 vezes
+            num1 = Number(prompt(`Digite um número inteiro: `));
+            for(let i = 10; i > 0; i--){
+                console.log(num1);
+            }
+           
             console.log(`\n`);
 
             break;
