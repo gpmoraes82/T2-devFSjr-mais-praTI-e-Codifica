@@ -1,6 +1,3 @@
-//Arquivo "main"
-// a partir deste .js acessaremos todos os demais exercicios
-
 const prompt = require('prompt-sync')({ sigint: true });
 
 let selector = undefined;
@@ -160,8 +157,6 @@ while (selector !== 0) {
             break;
         case 7:
             // Calcular valor da compra de maçãs
-            // As maçãs custam R$ 0,30 se forem compradas menos do que uma dúzia, e R$ 0,25 se forem compradas pelo menos doze.
-            // Escreva um algoritmo que leia o número de maçãs compradas, calcule e escreva o valor total da compra.
             console.log(`Opa, freguesia hoje é dia de promoção nas maçãs R$ 0,30 cada. Mas se você comprar 1 dúzia ou mais paga R$ 0,25 em cada.`);
             num1 = Number(prompt(`Digite quantas vão ser:`));
 
