@@ -45,7 +45,7 @@ while (selector !== 0) {
         case 1:
             // Lógica para verificar se o número é par ou ímpar
 
-            num1 = Number(prompt(`Verifique se o número é par ou ímpar: `));
+            num1 = parseInt(prompt(`Verifique se o número é par ou ímpar: `));
             (num1 % 2 === 0) ? console.log(`${num1} é PAR`) : console.log(`${num1} é IMPAR`);
             console.log(`\n`);
 
@@ -53,7 +53,7 @@ while (selector !== 0) {
         case 2:
             // Classificar idade em categorias
 
-            num1 = Number(prompt(`Digite uma idade: `));
+            num1 = parseInt(prompt(`Digite uma idade: `));
 
             if (num1 >= 0 && num1 <= 12) {
                 console.log(`${num1} é criança`);
@@ -88,7 +88,7 @@ while (selector !== 0) {
             // Menu interativo com 3 opções
 
             console.log(`Escolha qual deseja rolar 2.Uma moeda | 4. Um dado de 4 lados | 6. Um dados de 6 lados:`);
-            num1 = Number(prompt(`Digite o número do item que deseja rolar: `));
+            num1 = parseInt(prompt(`Digite o número do item que deseja rolar: `));
 
             switch (num1) {
                 case 2:
@@ -136,11 +136,11 @@ while (selector !== 0) {
 
             let triangulo = NaN;
 
-            if((num1 < (num2 + num3)) && (num2 < (num1 + num3)) && (num3 < (num1 + num2))){
-                if((num1 == num2) || (num1 == num3) || (num2 == num3)) triangulo = 1;
-                if((num1 != num2) && (num2 != num3)) triangulo = 2;
-                if((num1 == num2) && (num2 == num3)) triangulo = 3;
-            } 
+            if ((num1 < (num2 + num3)) && (num2 < (num1 + num3)) && (num3 < (num1 + num2))) {
+                if ((num1 == num2) || (num1 == num3) || (num2 == num3)) triangulo = 1;
+                if ((num1 != num2) && (num2 != num3)) triangulo = 2;
+                if ((num1 == num2) && (num2 == num3)) triangulo = 3;
+            }
 
             switch (triangulo) {
                 case 1:
@@ -165,7 +165,7 @@ while (selector !== 0) {
             console.log(`Opa, freguesia hoje é dia de promoção nas maçãs R$ 0,30 cada. Mas se você comprar 1 dúzia ou mais paga R$ 0,25 em cada.`);
             num1 = Number(prompt(`Digite quantas vão ser:`));
 
-            if(num1 >= 12) num2 = num1 * 0.25;
+            if (num1 >= 12) num2 = num1 * 0.25;
             else num2 = num1 * 0.30;
 
             console.log(`Valor total de ${num1} é R$ ${num2.toFixed(2)}`);
@@ -179,8 +179,8 @@ while (selector !== 0) {
             num1 = Number(prompt(`Digite o valor 1: `));
             num2 = Number(prompt(`Digite o valor 2: `));
 
-            if(num1 > num2) console.log(`${num1} é o maior`);
-            if(num1 < num2) console.log(`${num2} é o maior`);
+            if (num1 > num2) console.log(`${num1} é o maior`);
+            if (num1 < num2) console.log(`${num2} é o maior`);
 
             console.log(`\n`);
 
@@ -189,7 +189,8 @@ while (selector !== 0) {
         case 9:
             // Contagem regressiva de 10 até 1
             console.log(`Contagem regressiva de 10 até 1`);
-            for(let i = 10; i > 0; i--){
+
+            for (let i = 10; i > 0; i--) {
                 console.log(i);
             }
 
@@ -199,11 +200,12 @@ while (selector !== 0) {
 
         case 10:
             // Escrever um número inteiro 10 vezes
-            num1 = Number(prompt(`Digite um número inteiro: `));
-            for(let i = 10; i > 0; i--){
+            num1 = parseInt(prompt(`Digite um número inteiro: `));
+
+            for (let i = 10; i > 0; i--) {
                 console.log(num1);
             }
-           
+
             console.log(`\n`);
 
             break;
@@ -212,21 +214,40 @@ while (selector !== 0) {
             // Somar 5 números fornecidos
             console.log(`Realize a soma de 5 números`);
             num1 = Number(prompt(`Digite um número : `));
-            for(let i = 4; i > 0; i--){
+
+            for (let i = 4; i > 0; i--) {
                 num1 += Number(prompt(`Digite um novo número : `));
             }
             console.log(`A soma é: ${num1}`);
-            
+
             console.log(`\n`);
 
             break;
         case 12:
             // Tabuada de um número
+            num1 = Number(prompt("Digite um número para realizar a taboada de 1 a 10:"));
+
+            for (let i = 1; i <= 10; i++) {
+                num2 = num1 * i;
+                console.log(`${num1} x ${i} = ${num2}`);
+            }
             console.log(`\n`);
 
             break;
         case 13:
             // Média de números decimais até digitar 0
+            console.log(`Digite números decimais para realizar a média aritmética destes. Digite 0 para mostra a média.`);
+
+            num2 = 0;
+            num3 = 0;
+            do{
+                num1 = Number(prompt(`Digite um novo número : `));
+
+                num3 += num1;
+                num2++;
+            } while (num1 !== 0);
+
+            console.log(`A soma é: ${num3/(num2-1)}`);
             console.log(`\n`);
 
             break;
@@ -242,9 +263,11 @@ while (selector !== 0) {
             break;
         default:
             // Caso o valor não esteja entre 1 e 15
-            console.log(`${selector} esta opção não existe.`);
-            console.log(`\n`);
-            
+            if(selector !== 0) {
+                console.log(`${selector} esta opção não existe.`);
+                console.log(`\n`);
+            }
+
             break;
     }
 
