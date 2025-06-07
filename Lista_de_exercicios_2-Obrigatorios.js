@@ -81,21 +81,31 @@ while (selector !== 0) {
 
             break;
         case 2:
-            // Classificar idade em categorias
+            // Jogo da advinhação
 
-            num1 = parseInt(prompt(`Digite uma idade: `));
+            num1 = 10;
+            // num1 = Math.floor(Math.random() * 100) + 1;
+            num2 = false;
+            num3 = 0;
 
-            if (num1 >= 0 && num1 <= 12) {
-                console.log(`${num1} é criança`);
-            } else if (num1 >= 13 && num1 <= 17) {
-                console.log(`${num1} é adolescente`);
-            } else if (num1 >= 18 && num1 <= 64) {
-                console.log(`${num1} é adulto`);
-            } else if (num1 > 64) {
-                console.log(`${num1} é idoso`);
-            } else {
-                console.log(`   Idade não existe!`);
+            while (num2 != true) {
+
+                num3 = Number(prompt(`Digite um número: `));
+
+                if (num3 > num1) {
+                    console.log(`Mais baixo.`);
+                }
+                if (num3 < num1) {
+                    console.log(`Mais alto.`);
+                }
+
+                if (num3 === num1) {
+                    num2 = true;
+                    console.log(`Você acertou \x1b[33m${num1}\x1b[0m`);
+                }
+                
             }
+
             console.log(`\n`);
 
             break;
