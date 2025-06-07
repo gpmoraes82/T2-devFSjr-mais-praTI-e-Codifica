@@ -12,7 +12,7 @@ while (selector !== 0) {
     console.log(`
     \x1b[31mSeção 1:\x1b[0m Estruturas de Controle Avançadas
         \x1b[33m1. Validação de Datas\x1b[0m 
-            - Crie a função ehDataValida(dia, mes, ano) que retorne true se os valores formarem uma data real (meses de 28–31 dias, ano bissexto para fevereiro) e false caso contrário.
+            - Crie a função ehDataValida(dia, mes, ano) que retorne true se os valores formarem uma data real (meses de 28-31 dias, ano bissexto para fevereiro) e false caso contrário.
         \x1b[33m2. Jogo de Adivinhação\x1b[0m 
             - Escreva um script que gere um número aleatório de 1 a 100 e peça ao usuário, para adivinhar. Use while para repetir até acertar, contando tentativas e exibindo “mais alto” ou “mais baixo”
               a cada palpite errado.
@@ -42,10 +42,41 @@ while (selector !== 0) {
 
     switch (selector) {
         case 1:
-            // Lógica para verificar se o número é par ou ímpar
+            //Validador de datas
 
-            num1 = parseInt(prompt(`Verifique se o número é par ou ímpar: `));
-            (num1 % 2 === 0) ? console.log(`${num1} é PAR`) : console.log(`${num1} é IMPAR`);
+            function ehDataValida(dia, mes, ano) {
+                // Verifica se os valores são números inteiros positivos
+                if (!Number.isInteger(dia) || !Number.isInteger(mes) || !Number.isInteger(ano)) {
+                    return false;
+                }
+
+                // Verifica se o mês está no intervalo válido
+                if (mes < 1 || mes > 12) {
+                    return false;
+                }
+
+                // Dias máximos por mês (fevereiro ajustado depois se necessário)
+                const diasPorMes = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+                // Ajusta fevereiro se for ano bissexto
+                if ((ano % 4 === 0 && ano % 100 !== 0) || (ano % 400 === 0)) {
+                    diasPorMes[1] = 29;
+                }
+
+                // Verifica se o dia está dentro do limite do mês
+                if (dia < 1 || dia > diasPorMes[mes - 1]) {
+                    return false;
+                }
+
+                return true;
+            }
+
+            console.log(`Data 29/02/2024 (exemplo de ano bissexto): \x1b[33m${ehDataValida(29, 2, 2024)}\x1b[0m`); // true
+            console.log(`Data 29/02/2023 (exemplo de ano \x1b[31mnão\x1b[0m bissexto): \x1b[31m${ehDataValida(29, 2, 2023)}\x1b[0m`); // false
+            console.log(`Data 31/04/2022 (exemplo de dia inválido): \x1b[31m${ehDataValida(31, 4, 2022)}\x1b[0m`); // false
+            console.log(`Data 30/06/2022: \x1b[33m${ehDataValida(30, 6, 2022)}\x1b[0m`); // true
+            console.log(`Data 15/13/2022 (exemplo de mês inválido): \x1b[31m${ehDataValida(15, 13, 2022)}\x1b[0m`); // false
+
             console.log(`\n`);
 
             break;
