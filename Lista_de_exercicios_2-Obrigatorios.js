@@ -88,22 +88,26 @@ while (selector !== 0) {
             num2 = false;
             num3 = 0;
 
+            let cont = 0;
+
             while (num2 != true) {
+
+                cont++;
 
                 num3 = Number(prompt(`Digite um número: `));
 
                 if (num3 > num1) {
-                    console.log(`Mais baixo.`);
+                    console.log(`Tentativa ${cont}, Mais baixo.`);
                 }
                 if (num3 < num1) {
-                    console.log(`Mais alto.`);
+                    console.log(`Tentativa ${cont}, Mais alto.`);
                 }
 
                 if (num3 === num1) {
                     num2 = true;
-                    console.log(`Você acertou \x1b[33m${num1}\x1b[0m`);
+                    console.log(`Você acertou em ${cont} tentativas, \x1b[33m${num1}\x1b[0m`);
                 }
-                
+
             }
 
             console.log(`\n`);
