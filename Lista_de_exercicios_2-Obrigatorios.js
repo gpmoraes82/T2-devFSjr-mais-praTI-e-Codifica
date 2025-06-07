@@ -17,7 +17,7 @@ while (selector !== 0) {
             - Escreva um script que gere um número aleatório de 1 a 100 e peça ao usuário, para adivinhar. Use while para repetir até acertar, contando tentativas e exibindo “mais alto” ou “mais baixo”
               a cada palpite errado.
         \x1b[33m3. Palavras Únicas\x1b[0m 
-            - Dada uma string (ex.: "olá olá mundo mundo"), use if/else e for para extrair todas as palavras únicas e exibi-las em um array. 
+            - Dada uma string (ex.: "olá olá mundo mundo"), use if/else e for para extrair todas as palavras únicas e exibi-las em um array.
     \x1b[31mSeção 2:\x1b[0m Funções e Recursão
         \x1b[33m4. Fatorial Recursivo\x1b[0m 
             - Implemente function fatorial(n) de forma recursiva; trate n < 0 lançando um Error, e n === 0 retornando 1. 
@@ -83,8 +83,8 @@ while (selector !== 0) {
         case 2:
             // Jogo da advinhação
 
-            num1 = 10;
-            // num1 = Math.floor(Math.random() * 100) + 1;
+            // num1 = 10; //descomentar para fins de teste
+            num1 = Math.floor(Math.random() * 100) + 1;
             num2 = false;
             num3 = 0;
 
@@ -99,6 +99,7 @@ while (selector !== 0) {
                 if (num3 > num1) {
                     console.log(`Tentativa ${cont}, Mais baixo.`);
                 }
+
                 if (num3 < num1) {
                     console.log(`Tentativa ${cont}, Mais alto.`);
                 }
@@ -114,17 +115,32 @@ while (selector !== 0) {
 
             break;
         case 3:
-            // Classificar nota como Aprovado, Recuperação ou Reprovado
+            // Palavras únicas em uma frase
 
-            num1 = Number(prompt(`Digite uma nota de 0 a 10: `));
+            texto = prompt(`Digite uma frase: `);
 
-            if (num1 >= 0 && num1 <= 3.9) {
-                console.log(`${num1} Reprovado`);
-            } else if (num1 >= 4 && num1 <= 6.9) {
-                console.log(`${num1} Recuperação`);
-            } else if (num1 >= 6.9 && num1 <= 10) {
-                console.log(`${num1} Aprovado`);
-            } else console.log(`Nota fora do padrão!`);
+            const palavras = texto.split(" ");
+            const unicas = [];
+
+            for (let i = 0; i < palavras.length; i++) {
+                let palavraAtual = palavras[i];
+                let contagem = 0;
+
+                // Conta quantas vezes a palavra aparece
+                for (let j = 0; j < palavras.length; j++) {
+                    if (palavraAtual === palavras[j]) {
+                        contagem++;
+                    }
+                }
+
+                // Se apareceu só uma vez, adiciona ao array de únicas
+                if (contagem === 1) {
+                    unicas.push(palavraAtual);
+                }
+            }
+
+            console.log(`Palavras únicas na frase: \x1b[33m${unicas}\x1b[0m`);
+            
             console.log(`\n`);
 
             break;
