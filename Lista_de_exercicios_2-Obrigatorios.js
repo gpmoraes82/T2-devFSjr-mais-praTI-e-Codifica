@@ -1,3 +1,24 @@
+/******************************************************
+ * Função DEBOUNCE
+******************************************************/
+// Nesse caso é mandatório o uso da lib readline-sync, para obtermos a escuta de cada letra digitada para execução da função debouce
+const readline = require('readline');
+
+function debounce(fn, delay) {
+    let timer = null;
+    return function (...args) {
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+            fn.apply(this, args);
+        }, delay);
+    };
+}
+
+
+
+/********************
+** Menu de navegação
+********************/
 const prompt = require('prompt-sync')({ sigint: true });
 
 let selector = undefined;
@@ -169,23 +190,64 @@ while (selector !== 0) {
 
             break;
         case 5:
-            // Calcular IMC e classificar peso
-            num1 = Number(prompt(`Digite o seu peso (em kg): `));
-            num2 = Number(prompt(`Digite a sua altura (em metros): `));
-            let imc = num1 / (num2 * num2);
 
-            if (imc < 18.5) {
-                console.log('Abaixo do peso.');
-            } else if (imc >= 18.5 && imc <= 24.9) {
-                console.log('Peso normal.');
-            } else if (imc >= 25 && imc <= 29.9) {
-                console.log('Sobrepeso.');
-            } else if (imc >= 30 && imc <= 34.9) {
-                console.log('Obesidade grau 1.');
-            } else if (imc >= 35 && imc <= 39.9) {
-                console.log('Obesidade grau 2.');
-            } else {
-                console.log('Obesidade grau 3.');
+            // ========== Execução da funcionalidade debounce ==========
+            const rl = readline.createInterface({
+                input: process.stdin,
+                output: process.stdout,
+                prompt: 'Digite algo: '
+            });
+
+            let buffer = '';
+            
+            console.clear();
+            console.log('Digite para buscar (debounce 2s). Pressione ESC para sair.\n');
+            rl.prompt();
+            
+            const pesquisaDebounced = debounce((texto) => {
+                console.log(`\nBuscando por: ${texto}`);
+                console.log("\nBackspace para apagar o que foi digitado, Enter limpa o buffer ou siga digitando para buscar. ESC para sair.");
+            }, 2000);
+            
+            process.stdin.setRawMode(true);
+            process.stdin.resume();
+            process.stdin.setEncoding('utf8');
+
+            // Listener para digitação
+            const keyListener = (key) => {
+                if (key === '\u001b') { // Tecla ESC
+                    process.stdin.setRawMode(false);
+                    process.stdin.removeListener('data', keyListener);
+                    rl.close(); // Fecha a interface readline
+                } else if (key === '\u0003') {
+                    process.exit(); // Ctrl+C para sair do app
+                } else if (key === '\r') {
+                    console.log('\nBuffer limpo');
+                    buffer = '';
+                } else if (key === '\u0008' || key === '\x7f') {
+                    buffer = buffer.slice(0, -1);
+                    readline.cursorTo(process.stdout, 0);
+                    readline.clearLine(process.stdout, 0);
+                    process.stdout.write(`Digitando algo: ${buffer}`);
+                } else {
+                    buffer += key;
+                    readline.cursorTo(process.stdout, 0);
+                    readline.clearLine(process.stdout, 0);
+                    process.stdout.write(`Digitando algo: ${buffer}`);
+                }
+
+                pesquisaDebounced(buffer);
+
+            };
+
+            process.stdin.on('data', keyListener);
+
+            // Espera o retorno do usuário via ESC
+            let esperandoESC = true;
+            while (esperandoESC) {
+                const wait = require('deasync'); // Forma síncrona de bloquear
+                wait.sleep(100); // Aguarda até que a interface readline feche (linha acima trata isso)
+                if (rl.closed) esperandoESC = false;
             }
 
             console.log(`\n`);
