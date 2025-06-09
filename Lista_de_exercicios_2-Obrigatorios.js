@@ -140,27 +140,31 @@ while (selector !== 0) {
             }
 
             console.log(`Palavras únicas na frase: \x1b[33m${unicas}\x1b[0m`);
-            
+
             console.log(`\n`);
 
             break;
         case 4:
-            // Menu interativo com 3 opções
+            //Farorial recursivo
 
-            console.log(`Escolha qual deseja rolar 2.Uma moeda | 4. Um dado de 4 lados | 6. Um dados de 6 lados:`);
-            num1 = parseInt(prompt(`Digite o número do item que deseja rolar: `));
-
-            switch (num1) {
-                case 2:
-                    console.log(Math.floor(Math.random() * num1) + 1);
-                    break;
-                case 4:
-                    console.log(Math.floor(Math.random() * num1) + 1);
-                    break;
-                case 6:
-                    console.log(Math.floor(Math.random() * num1) + 1);
-                    break;
+            function fatorial(n) {
+                if (n < 0) {
+                    throw new Error("Fatorial não definido para números negativos.");
+                }
+                if (n === 0) {
+                    return 1;
+                } else {
+                    return n * fatorial(n - 1);
+                }
             }
+
+            try {
+                num1 = Number(prompt(`Digite um número para realizar se fatorial: `));
+                console.log(`Fatorial de ${num1} é: ${fatorial(num1)}`);
+            } catch (e) {
+                console.error(`\x1b[31m${e.message}\x1b[0m`); // "Fatorial não definido para números negativos."
+            }
+
             console.log(`\n`);
 
             break;
