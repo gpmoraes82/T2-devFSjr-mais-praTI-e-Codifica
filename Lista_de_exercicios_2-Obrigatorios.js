@@ -199,16 +199,16 @@ while (selector !== 0) {
             });
 
             let buffer = '';
-            
+
             console.clear();
             console.log('Digite para buscar (debounce 2s). Pressione ESC para sair.\n');
             rl.prompt();
-            
+
             const pesquisaDebounced = debounce((texto) => {
                 console.log(`\nBuscando por: ${texto}`);
                 console.log("\nBackspace para apagar o que foi digitado, Enter limpa o buffer ou siga digitando para buscar. ESC para sair.");
             }, 2000);
-            
+
             process.stdin.setRawMode(true);
             process.stdin.resume();
             process.stdin.setEncoding('utf8');
@@ -254,33 +254,51 @@ while (selector !== 0) {
 
             break;
         case 6:
-            // Verificar tipo de triângulo
-            console.log(`Digite 3 tamanhos de lado para formar um triângulo.`);
-            num1 = Number(prompt(`Digite o lado A: `));
-            num2 = Number(prompt(`Digite o lado B: `));
-            num3 = Number(prompt(`Digite o lado C: `));
 
-            let triangulo = NaN;
+            function memoize(fn) {
+                const cache = new Map(); // Armazena os resultados
 
-            if ((num1 < (num2 + num3)) && (num2 < (num1 + num3)) && (num3 < (num1 + num2))) {
-                if ((num1 == num2) || (num1 == num3) || (num2 == num3)) triangulo = 1;
-                if ((num1 != num2) && (num2 != num3)) triangulo = 2;
-                if ((num1 == num2) && (num2 == num3)) triangulo = 3;
+                return function (...args) {
+                    const key = JSON.stringify(args); // Converte os argumentos em uma chave única
+
+                    if (cache.has(key)) {
+                        console.log("Resultado em cache para:", args);
+                        return cache.get(key);
+                    }
+
+                    const result = fn(...args);
+                    cache.set(key, result);
+                    console.log("Novo cálculo para:", args);
+                    return result;
+                };
             }
 
-            switch (triangulo) {
-                case 1:
-                    console.log(`Triângulo isósceles.`);
-                    break;
-                case 2:
-                    console.log(`Triângulo escaleno.`);
-                    break;
-                case 3:
-                    console.log(`Triângulo eqüilátero`);
-                    break;
-                default: console.log(`Não é um triângulo válido.`)
-                    break;
+            // Função lenta simulada
+            function slowAdd(a, b) {
+                for (let i = 0; i < 1e9; i++) { } // Simula operação pesada
+                return a + b;
             }
+
+            // Memoização
+            const memoizedAdd = memoize(slowAdd);
+
+            console.time('Primeira vez');
+            console.log(memoizedAdd(2, 3)); // Executa normalmente
+            console.log(memoizedAdd(3, 4)); 
+            console.log(memoizedAdd(4, 5)); 
+            console.log(memoizedAdd(6, 7)); 
+            console.timeEnd('Primeira vez');
+
+            console.log(`\n`);
+
+            console.time('Segunda vez');
+            console.log(memoizedAdd(2, 3)); // Usa cache instantâneo
+            console.log(memoizedAdd(3, 4));
+            console.log(memoizedAdd(4, 5)); 
+            console.log(memoizedAdd(6, 7)); 
+
+            console.timeEnd('Segunda vez');
+
             console.log(`\n`);
 
             break;
