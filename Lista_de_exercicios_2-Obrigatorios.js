@@ -255,6 +255,8 @@ while (selector !== 0) {
             break;
         case 6:
 
+            //Menoization
+
             function memoize(fn) {
                 const cache = new Map(); // Armazena os resultados
 
@@ -284,9 +286,9 @@ while (selector !== 0) {
 
             console.time('Primeira vez');
             console.log(memoizedAdd(2, 3)); // Executa normalmente
-            console.log(memoizedAdd(3, 4)); 
-            console.log(memoizedAdd(4, 5)); 
-            console.log(memoizedAdd(6, 7)); 
+            console.log(memoizedAdd(3, 4));
+            console.log(memoizedAdd(4, 5));
+            console.log(memoizedAdd(6, 7));
             console.timeEnd('Primeira vez');
 
             console.log(`\n`);
@@ -294,8 +296,8 @@ while (selector !== 0) {
             console.time('Segunda vez');
             console.log(memoizedAdd(2, 3)); // Usa cache instantâneo
             console.log(memoizedAdd(3, 4));
-            console.log(memoizedAdd(4, 5)); 
-            console.log(memoizedAdd(6, 7)); 
+            console.log(memoizedAdd(4, 5));
+            console.log(memoizedAdd(6, 7));
 
             console.timeEnd('Segunda vez');
 
@@ -303,14 +305,31 @@ while (selector !== 0) {
 
             break;
         case 7:
-            // Calcular valor da compra de maçãs
-            console.log(`Opa, freguesia hoje é dia de promoção nas maçãs R$ 0,30 cada. Mas se você comprar 1 dúzia ou mais paga R$ 0,25 em cada.`);
-            num1 = Number(prompt(`Digite quantas vão ser:`));
 
-            if (num1 >= 12) num2 = num1 * 0.25;
-            else num2 = num1 * 0.30;
+            // Mapeamento e Ordenação
 
-            console.log(`Valor total de ${num1} é R$ ${num2.toFixed(2)}`);
+            function obterNomesOrdenadosPorPreco(produtos) {
+                return produtos
+                    .sort((a, b) => a.preco - b.preco) // ordena por preço crescente
+                    .map(produto => produto.nome);     // extrai apenas os nomes
+            }
+
+            const produtos = [
+                { nome: 'Mouse', preco: 50 },
+                { nome: 'Teclado', preco: 80 },
+                { nome: 'Monitor', preco: 900 },
+                { nome: 'Cabo USB', preco: 20 }
+            ];
+
+            console.log("Array SEM ordenação: ");
+            console.table(produtos); // Antes da ordenação
+
+            console.log("\n");
+
+            const nomesOrdenados = obterNomesOrdenadosPorPreco(produtos);
+            console.log("Array COM ordenação: ");
+            console.table(nomesOrdenados); // [ 'Cabo USB', 'Mouse', 'Teclado', 'Monitor' ]
+
             console.log(`\n`);
 
             break;
