@@ -365,12 +365,31 @@ while (selector !== 0) {
 
             break;
         case 9:
-            // Contagem regressiva de 10 até 1
-            console.log(`Contagem regressiva de 10 até 1`);
+            // Conversão Entre Formatos
 
-            for (let i = 10; i > 0; i--) {
-                console.log(i);
+            function paresParaObjeto(pares) {
+                return Object.fromEntries(pares);
             }
+
+            function objetoParaPares(obj) {
+                return Object.entries(obj);
+            }
+
+            let pares = [['nome', 'Ana'], ['idade', 30]];
+            let obj = paresParaObjeto(pares);
+
+            console.log("Conversão Entre Formatos:\n");
+            console.log(pares);
+            console.log("Convertido para obj: ")
+            console.log(obj); // { nome: 'Ana', idade: 30 }
+
+            console.log("\n=================================\n");
+
+            obj = { nome: 'Ana', idade: 30 };
+            pares = objetoParaPares(obj);
+            console.log(obj);
+            console.log("Convertido para Array: ")
+            console.log(pares); // [['nome', 'Ana'], ['idade', 30]]
 
             console.log(`\n`);
 
