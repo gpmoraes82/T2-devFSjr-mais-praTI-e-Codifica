@@ -334,13 +334,32 @@ while (selector !== 0) {
 
             break;
         case 8:
-            // Escrever dois valores em ordem crescente
-            console.log(`Digite 2 valores para descobrir quem é o maior.`);
-            num1 = Number(prompt(`Digite o valor 1: `));
-            num2 = Number(prompt(`Digite o valor 2: `));
 
-            if (num1 > num2) console.log(`${num1} é o maior`);
-            if (num1 < num2) console.log(`${num2} é o maior`);
+            // Agrupamento por Propriedade 
+            const vendas = [
+                { cliente: 'Ana', total: 100 },
+                { cliente: 'João', total: 150 },
+                { cliente: 'Ana', total: 200 },
+                { cliente: 'João', total: 50 },
+                { cliente: 'Carlos', total: 300 }
+            ];
+
+            console.log(`Vendas efetuadas por cliente:`);
+            console.table(vendas);
+
+            const totaisPorCliente = vendas.reduce((acumulador, venda) => {
+                const { cliente, total } = venda;
+
+                if (!acumulador[cliente]) {
+                    acumulador[cliente] = 0;
+                }
+
+                acumulador[cliente] += total;
+                return acumulador;
+            }, {});
+
+            console.log(`Total por cliente:`);
+            console.table(totaisPorCliente);
 
             console.log(`\n`);
 
