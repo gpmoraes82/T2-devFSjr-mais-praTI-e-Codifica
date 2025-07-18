@@ -74,23 +74,22 @@ h2 {
     border-radius: 4px;
 }
 
-/* === GALERIA CONTAINER (Flexbox) === */
+/* GALERIA (Flexbox) */
 .galeria-container {
   display: flex;
-  justify-content: center;  /* centraliza horizontalmente */
+  justify-content: center;
   padding: 20px;
-  flex-wrap: wrap;          /* permite quebrar linha em telas menores */
+  flex-wrap: wrap; /* permite quebrar linha para telas menores */
 }
 
-/* === GALERIA (Grid) === */
+/* GALERIA (Grid)*/
 .galeria {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 colunas em telas grandes */
-  gap: 15px; /* espaço entre imagens */
-  max-width: 1200px; /* limita a largura máxima */
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  max-width: 1200px;
 }
 
-/* Cada figura da galeria */
 .galeria figure {
   background: #fff;
   border: 2px solid #ddd;
@@ -100,17 +99,15 @@ h2 {
 }
 
 .galeria figure:hover {
-  transform: scale(1.05); /* efeito de zoom suave */
+  transform: scale(1.05); /* efeito de zoom*/
 }
 
-/* Imagens da galeria */
 .galeria img {
-  width: 100%;   /* ocupa toda a largura do grid item */
+  width: 100%;
   height: auto;
   border-radius: 6px;
 }
 
-/* Legendas */
 .galeria figcaption {
   margin-top: 8px;
   font-size: 0.9rem;
@@ -123,14 +120,12 @@ h2 {
     font-weight: bold;
 }
 
-/* Telas médias: 2 colunas */
 @media (max-width: 900px) {
   .galeria {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-/* Telas muito pequenas: 1 coluna */
 @media (max-width: 500px) {
   .galeria {
     grid-template-columns: 1fr;
