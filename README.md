@@ -10,6 +10,11 @@
     - Seção 2: Funções e Recursão
     - Seção 3: Arrays e Objetos Complexos
 
+ ## Lista 3 de exercícios obrigatórios
+* Exercícios que contemplam:
+    - Desenvolvimento Web Básico
+
+
 ## Pré-requisitos para execução
 
 ### Node.js: https://nodejs.org/
