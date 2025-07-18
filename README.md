@@ -16,7 +16,9 @@
 * v22.14.0
 
 ### Dependências
-* <code>prompt-sync</code> 
+* <code> deasync </code> 
+* <code> prompt-sync </code>
+* <code> readline-sync </code> 
 
 ## Executando o código
 Após clonar este repositório vá até o diretorio <code>/T2-devFSjr-mais-praTI-e-Codifica</code> <br>
