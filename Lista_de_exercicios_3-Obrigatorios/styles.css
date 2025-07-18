@@ -1,0 +1,139 @@
+/* 
+    ********************
+    * Exercícios 4 e 5 *
+    ********************
+*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background: #2A7B9B;
+    background: linear-gradient(120deg, rgba(42, 123, 155, 1) 0%, rgba(87, 199, 133, 1) 10%, rgb(146, 147, 219) 80%);
+    color: white;
+    padding: 20px;
+    margin: 10px;
+    border: 2px solid #2c6690;
+}
+
+body {
+    background-color: #f0f0f0;
+    color: #333;
+    line-height: 1.5;
+
+}
+
+main {
+    font-family: Arial, sans-serif;
+    background-color: #adadad;
+    color: #222;
+    padding: 20px;
+    margin: 10px;
+    border: 3px solid #5da15d;
+}
+
+
+main section {
+    background-color: #fff;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 2px dashed #5da15d; /* borda pontilhada para vizualizar melhor */
+}
+
+footer {
+    background-color: #474747;
+    color: #fff;
+    padding: 15px;
+    margin: 10px;
+    border: 3px solid #000;
+    text-align: center;
+}
+
+
+h2 {
+    font-size: 1.8rem;
+    text-decoration: underline;
+    margin-bottom: 10px;
+}
+
+.standardText {
+    font-family: Arial, sans-serif;
+    color: #222;
+    padding: 20px;
+    margin: 10px;
+}
+
+.destaque {
+    font-style: italic;
+    background-color: #f5e9b8;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+/* === GALERIA CONTAINER (Flexbox) === */
+.galeria-container {
+  display: flex;
+  justify-content: center;  /* centraliza horizontalmente */
+  padding: 20px;
+  flex-wrap: wrap;          /* permite quebrar linha em telas menores */
+}
+
+/* === GALERIA (Grid) === */
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 colunas em telas grandes */
+  gap: 15px; /* espaço entre imagens */
+  max-width: 1200px; /* limita a largura máxima */
+}
+
+/* Cada figura da galeria */
+.galeria figure {
+  background: #fff;
+  border: 2px solid #ddd;
+  padding: 10px;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.galeria figure:hover {
+  transform: scale(1.05); /* efeito de zoom suave */
+}
+
+/* Imagens da galeria */
+.galeria img {
+  width: 100%;   /* ocupa toda a largura do grid item */
+  height: auto;
+  border-radius: 6px;
+}
+
+/* Legendas */
+.galeria figcaption {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+#importante {
+    border-top: 3px solid #e74c3c;
+    padding-top: 10px;
+    font-weight: bold;
+}
+
+/* Telas médias: 2 colunas */
+@media (max-width: 900px) {
+  .galeria {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Telas muito pequenas: 1 coluna */
+@media (max-width: 500px) {
+  .galeria {
+    grid-template-columns: 1fr;
+  }
+}
+
