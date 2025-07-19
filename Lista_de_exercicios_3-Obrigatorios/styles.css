@@ -60,6 +60,10 @@ h2 {
     margin-bottom: 10px;
 }
 
+p.i {
+    font-style: italic;
+}
+
 .standardText {
     font-family: Arial, sans-serif;
     color: #222;
@@ -74,7 +78,15 @@ h2 {
     border-radius: 4px;
 }
 
-/* GALERIA (Flexbox) para tornar o conteúdo responsivo */
+#importante {
+    border-top: 3px solid #e74c3c;
+    padding-top: 10px;
+    font-weight: bold;
+}
+
+/* === GALERIA === */
+
+/* (Flexbox) para tornar o conteúdo responsivo */
 .galeria-container {
   display: flex;
   justify-content: center;
@@ -82,7 +94,7 @@ h2 {
   flex-wrap: wrap; /* permite quebrar linha para telas menores */
 }
 
-/* GALERIA (Grid) para organizar o conteúdo*/
+/* (Grid) para organizar o conteúdo*/
 .galeria {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -114,12 +126,6 @@ h2 {
   color: #555;
 }
 
-#importante {
-    border-top: 3px solid #e74c3c;
-    padding-top: 10px;
-    font-weight: bold;
-}
-
 @media (max-width: 900px) {
   .galeria {
     grid-template-columns: repeat(2, 1fr);
@@ -132,3 +138,60 @@ h2 {
   }
 }
 
+/* === MENU PADRÃO === */
+header nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin-top: 10px;
+}
+
+header nav a {
+  text-decoration: none;
+  color: white;
+  background: #2c6690;
+  padding: 5px 10px;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+header nav a:hover {
+  background: #1f4a6d;
+}
+
+/* === BOTÃO HAMBURGER (oculto em telas grandes) === */
+.hamburger {
+  display: none; /* só aparece em telas pequenas */
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+/* === RESPONSIVO: TELA ≤ 600px === */
+@media (max-width: 600px) {
+  /* Esconde o menu por padrão */
+  .menu {
+    display: none;
+    background: #ffffff00;
+    padding: 10px;
+  }
+
+  /* Hamburger aparece */
+  .hamburger {
+    display: block;
+    margin-top: 10px;
+  }
+
+  /* Quando ativo, mostra o menu */
+  .menu.ativo {
+    display: block;
+  }
+
+  /* Menu em coluna no mobile */
+  .menu ul {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
