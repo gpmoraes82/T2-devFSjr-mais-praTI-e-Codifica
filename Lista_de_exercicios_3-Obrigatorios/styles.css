@@ -74,7 +74,7 @@ h2 {
     border-radius: 4px;
 }
 
-/* GALERIA (Flexbox) */
+/* GALERIA (Flexbox) para tornar o conteúdo responsivo */
 .galeria-container {
   display: flex;
   justify-content: center;
@@ -82,7 +82,7 @@ h2 {
   flex-wrap: wrap; /* permite quebrar linha para telas menores */
 }
 
-/* GALERIA (Grid)*/
+/* GALERIA (Grid) para organizar o conteúdo*/
 .galeria {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
