@@ -10,10 +10,14 @@
     - Seção 2: Funções e Recursão
     - Seção 3: Arrays e Objetos Complexos
 
- ## Lista 3 de exercícios obrigatórios
+## Lista 3 de exercícios obrigatórios
 * Exercícios que contemplam:
     - Desenvolvimento Web Básico
 
+## Atividade 4 obrigatóra
+* Atividade que contempla:
+    - Desenvolvimento de página de perfil pessoal
+    - Já onlie, acesse em: https://gpmoraes82.github.io/
 
 ## Pré-requisitos para execução
 
