@@ -17,7 +17,7 @@
 ## Atividade 4 obrigatóra
 * Atividade que contempla:
     - Desenvolvimento de página de perfil pessoal
-    - Já onlie, acesse em: https://gpmoraes82.github.io/
+    - On line em: https://gpmoraes82.github.io/
 
 ## Pré-requisitos para execução
 
