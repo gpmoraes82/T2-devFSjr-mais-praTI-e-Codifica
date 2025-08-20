@@ -19,6 +19,10 @@
     - Desenvolvimento de página de perfil pessoal
     - On line em: https://gpmoraes82.github.io/
 
+## Atividade 5 obrigatóra
+* Atividade que contempla:
+    - A criação de uma aplicativo em react que consuma a API do TMDB (ou OMDb) para permitir que usuários busquem filmes
+
 ## Pré-requisitos para execução
 
 ### Node.js: https://nodejs.org/
