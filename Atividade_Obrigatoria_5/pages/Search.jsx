@@ -55,28 +55,12 @@ export default function Search() {
                 ))}
             </div>
 
-            {/* Paginação */}
-            {/* {totalResults > 10 && (
-                <div>
-                    <button disabled={page === 1} onClick={() => setPage(page - 1)}>
-                        Anterior
-                    </button>
-                    <span> Página {page} </span>
-                    <button
-                        disabled={page * 10 >= totalResults}
-                        onClick={() => setPage(page + 1)}
-                    >
-                        Próxima
-                    </button>
-                </div>
-            )} */}
-
             <Pagination>
                 page={page}
                 totalResults={totalResults}
                 onPageChange={(newPage) => setPage(newPage)}
             </Pagination>
-            
+
         </div>
     );
 }
