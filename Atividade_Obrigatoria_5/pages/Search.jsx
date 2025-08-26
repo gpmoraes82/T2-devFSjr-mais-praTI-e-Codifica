@@ -57,7 +57,7 @@ export default function Search() {
             {loading && <p className="flex items-center justify-center text-blue-500">Carregando...</p>}
             {error && <p className="text-red-500">{error}</p>}
 
-            <div className="grid gap-4 grid-cols-[repeat(auto-fill,minmax(200px,1fr))]">
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-4">
                 {movies.map((movie, index) => (
                     <MovieCard key={`${movie.imdbID}-${index}`} movie={movie} />
                 ))}
