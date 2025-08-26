@@ -54,7 +54,7 @@ export default function Search() {
                 className="border rounded px-3 py-2 w-full max-w-md mb-4"
             />
 
-            {loading && <p className="text-blue-500">Carregando...</p>}
+            {loading && <p className="flex items-center justify-center text-blue-500">Carregando...</p>}
             {error && <p className="text-red-500">{error}</p>}
 
             <div className="grid gap-4 grid-cols-[repeat(auto-fill,minmax(200px,1fr))]">
@@ -62,6 +62,8 @@ export default function Search() {
                     <MovieCard key={`${movie.imdbID}-${index}`} movie={movie} />
                 ))}
             </div>
+
+            {loading && <p className="flex items-center justify-center text-blue-500">Carregando...</p>}
 
             <Pagination
                 page={page}
