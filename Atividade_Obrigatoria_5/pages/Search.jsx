@@ -35,7 +35,7 @@ export default function Search() {
 
     return (
         <div>
-            <h1>Buscar Filmes</h1>
+            <h1 className="text-2xl font-bold mb-4">Buscar Filmes</h1>
             <input
                 type="text"
                 placeholder="Digite o nome do filme..."
@@ -44,12 +44,13 @@ export default function Search() {
                     setQuery(e.target.value);
                     setPage(1);
                 }}
+                className="border rounded px-3 py-2 w-full max-w-md mb-4"
             />
 
-            {loading && <p>Carregando...</p>}
-            {error && <p>{error}</p>}
+            {loading && <p className="text-blue-500">Carregando...</p>}
+            {error && <p className="text-red-500">{error}</p>}
 
-            <div style={{ display: "grid", gap: "1rem", gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))" }}>
+            <div className="grid gap-4 grid-cols-[repeat(auto-fill,minmax(200px,1fr))]">
                 {movies.map((movie) => (
                     <MovieCard key={movie.imdbID} movie={movie} />
                 ))}
