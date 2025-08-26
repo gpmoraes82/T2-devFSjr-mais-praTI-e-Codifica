@@ -19,7 +19,10 @@ export default function Pagination({ page, totalResults, onPageChange }) {
 
             <button
                 disabled={page === totalPages}
-                onClick={() => onPageChange(page + 1)}
+                onClick={() => {
+                    console.log("Botão clicado", page);
+                    onPageChange(page + 1);
+                }}
                 className="px-3 py-1 bg-gray-300 rounded disabled:opacity-50"
             >
                 Próxima

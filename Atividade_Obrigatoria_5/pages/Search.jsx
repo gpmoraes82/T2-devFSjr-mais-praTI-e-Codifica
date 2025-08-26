@@ -13,6 +13,7 @@ export default function Search() {
     const [error, setError] = useState("");
 
     useEffect(() => {
+
         if (query.length < 3) return;
 
         setLoading(true);
@@ -23,7 +24,7 @@ export default function Search() {
             .then((data) => {
                 if (data.Response === "True") {
                     setMovies(data.Search);
-                    setTotalResults(parseInt(data.totalResults, 100));
+                    setTotalResults(parseInt(data.totalResults, 10));
                 } else {
                     setError(data.Error);
                     setMovies([]);
@@ -32,6 +33,12 @@ export default function Search() {
             .catch(() => setError("Erro ao buscar filmes"))
             .finally(() => setLoading(false));
     }, [query, page]);
+
+    console.log("Props que envio para Pagination:", {
+        page,
+        totalResults,
+        onPageChange: (typeof setPage)
+    });
 
     return (
         <div>
@@ -51,16 +58,19 @@ export default function Search() {
             {error && <p className="text-red-500">{error}</p>}
 
             <div className="grid gap-4 grid-cols-[repeat(auto-fill,minmax(200px,1fr))]">
-                {movies.map((movie) => (
-                    <MovieCard key={movie.imdbID} movie={movie} />
+                {movies.map((movie, index) => (
+                    <MovieCard key={`${movie.imdbID}-${index}`} movie={movie} />
                 ))}
             </div>
 
-            <Pagination>
+            <Pagination
                 page={page}
                 totalResults={totalResults}
-                onPageChange={(newPage) => setPage(newPage)}
-            </Pagination>
+                onPageChange={(newPage) => {
+                    console.log("onPageChange chamado com:", newPage);
+                    setPage(newPage);
+                }}
+            />
 
         </div>
     );
