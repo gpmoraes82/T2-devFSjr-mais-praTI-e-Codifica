@@ -23,7 +23,7 @@ export default function Search() {
             .then((data) => {
                 if (data.Response === "True") {
                     setMovies(data.Search);
-                    setTotalResults(parseInt(data.totalResults, 10));
+                    setTotalResults(parseInt(data.totalResults, 100));
                 } else {
                     setError(data.Error);
                     setMovies([]);
