@@ -31,7 +31,8 @@
 ## Executando o código
 - Após clonar este repositório vá até o diretorio <code>/T2-devFSjr-mais-praTI-e-Codifica</code> <br>
 Instale as dependências <pre><code>npm install</code></pre>
-- Para executar o programa, dentro deste diretorio execute o comando <pre><code>node <nome do arquivo>.js</code></pre>
+- Para executar o programa, dentro deste diretorio execute o comando <pre><code>node < nome do arquivo >.js</code></pre>
+- Para executar o programas, que utilizam front-end e acesso a apis <pre><code>npm run dev</code></pre>
 - Executar npm install para cada lista ou atividade
 - Ao verificar a Atividade 5 o arquivo .env-SUA_API_KEY deve ser renomeado para apenas .env e adicionada a api key no local designado
 
