@@ -29,9 +29,8 @@
 * v22.14.0
 
 ### Dependências
-* <code> deasync </code> 
-* <code> prompt-sync </code>
-* <code> readline-sync </code> 
+    - Executar npm install para cada lista ou atividade
+    - Ao verificar a Atividade 5 o arquivo .env-SUA_API_KEY deve ser renomeado para apenas .env e adicionada a api key no local designado
 
 ## Executando o código
 Após clonar este repositório vá até o diretorio <code>/T2-devFSjr-mais-praTI-e-Codifica</code> <br>
