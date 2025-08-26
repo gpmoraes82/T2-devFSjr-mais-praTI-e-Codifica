@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-const API_KEY = "SUA_API_KEY";
+const API_KEY = import.meta.env.VITE_OMDB_API_KEY;
 
 export default function Details() {
     const { id } = useParams();

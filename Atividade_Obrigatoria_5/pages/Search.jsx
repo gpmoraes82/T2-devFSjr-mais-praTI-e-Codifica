@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import MovieCard from "../components/MovieCard";
 import Pagination from "../components/Pagination";
 
-const API_KEY = "SUA_API_KEY"; // substitua pela sua chave do OMDb
+const API_KEY = import.meta.env.VITE_OMDB_API_KEY;
 
 export default function Search() {
     const [query, setQuery] = useState("");
