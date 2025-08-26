@@ -8,14 +8,25 @@ export default function App() {
 	return (
 		<FavoritesProvider>
 			<Router>
-				<nav>
+				{/* <nav>
 					<Link to="/">Busca</Link> | <Link to="/favorites">Favoritos</Link>
 				</nav>
 				<Routes>
 					<Route path="/" element={<Search />} />
 					<Route path="/details/:id" element={<Details />} />
 					<Route path="/favorites" element={<Favorites />} />
-				</Routes>
+				</Routes> */}
+				<nav className="bg-gray-900 text-white p-4 flex gap-4 shadow-md">
+					<Link className="hover:text-yellow-400" to="/">Busca</Link>
+					<Link className="hover:text-yellow-400" to="/favorites">Favoritos</Link>
+				</nav>
+				<main className="container mx-auto p-4">
+					<Routes>
+						<Route path="/" element={<Search />} />
+						<Route path="/details/:id" element={<Details />} />
+						<Route path="/favorites" element={<Favorites />} />
+					</Routes>
+				</main>
 			</Router>
 		</FavoritesProvider>
 	);
