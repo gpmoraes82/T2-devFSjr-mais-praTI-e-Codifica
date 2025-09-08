@@ -31,11 +31,6 @@
         3. **Tailwind CSS** → `03-tailwind/`
         4. **styled-components** → `04-styled-components/`
 
-## Como usar
-- Rode o projeto com:
-npm install
-npm run dev
-
 
 
 ## Pré-requisitos para execução
