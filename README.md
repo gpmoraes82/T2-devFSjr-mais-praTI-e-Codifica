@@ -25,7 +25,17 @@
 
 ## Atividade 6 obrigatóra
 * Atividade que contempla:
-    - Work In Progress
+    - Este projeto implementa **a mesma tela** em quatro técnicas de estilização diferentes:
+        1. **CSS Global** → `01-css-global/`
+        2. **CSS Modules** → `02-css-modules/`
+        3. **Tailwind CSS** → `03-tailwind/`
+        4. **styled-components** → `04-styled-components/`
+
+## Como usar
+- Rode o projeto com:
+npm install
+npm run dev
+
 
 
 ## Pré-requisitos para execução
@@ -35,9 +45,9 @@
 
 ## Executando o código
 - Após clonar este repositório vá até o diretorio <code>/T2-devFSjr-mais-praTI-e-Codifica</code> <br>
-Instale as dependências <pre><code>npm install</code></pre>
-- Para executar o programa, dentro deste diretorio execute o comando <pre><code>node < nome do arquivo >.js</code></pre>
+Após escolher a atividade que gostaria de verificar entre no diretório e instale as dependências <pre><code>npm install</code></pre>
+- Para executar o programas em Node.JS dentro deste diretorio, execute o comando <pre><code>node < nome do arquivo >.js</code></pre>
 - Para executar o programas, que utilizam front-end e acesso a apis <pre><code>npm run dev</code></pre>
-- Executar npm install para cada lista ou atividade
 - Ao verificar a Atividade 5 o arquivo .env-SUA_API_KEY deve ser renomeado para apenas .env e adicionada a api key no local designado
+- Para executar a Atividade 6 utilize o procedimento padrão ao inicio do tópico Executando o código
 
