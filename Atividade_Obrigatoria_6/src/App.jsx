@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 // Importa todas as 4 versões
-import GlobalApp from "./01-css-global/App";
+import GlobalCss from "../01-css-global/src/App";
 // import ModulesApp from "./02-css-modules/App";
 // import TailwindApp from "./03-tailwind/App";
 // import StyledApp from "./04-styled-components/App";
@@ -22,7 +22,7 @@ export default function App() {
                 borderRadius: "8px",
                 boxShadow: "0 2px 6px rgba(0,0,0,0.15)"
             }}>
-                <label htmlFor="style">Selecione o estilo:</label>
+                <label htmlFor="style">SELECIONE O ESTILO DE CSS:</label>
                 <select
                     id="style"
                     value={style}
@@ -38,10 +38,10 @@ export default function App() {
 
             {/* Renderiza a versão escolhida */}
             <div>
-                {style === "global" && <GlobalApp />}
-                {style === "modules" && <ModulesApp />}
+                {style === "global" && <GlobalCss />}
+                {/* {style === "modules" && <ModulesApp />}
                 {style === "tailwind" && <TailwindApp />}
-                {style === "styled" && <StyledApp />}
+                {style === "styled" && <StyledApp />} */}
             </div>
         </div>
     );

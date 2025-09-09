@@ -5,7 +5,7 @@ export const PRODUCTS = [
         price: 499.9,
         rating: 4.6,
         tag: "Novo",
-        image: "https://via.placeholder.com/600?text=Produto+1",
+        image: "./assets/headPhones.jpg",
     },
     {
         id: "p2",
@@ -13,7 +13,7 @@ export const PRODUCTS = [
         price: 349.0,
         rating: 4.4,
         tag: "Promo",
-        image: "https://via.placeholder.com/600?text=Produto+2",
+        image: "./assets/keyboard.jpg",
     },
     {
         id: "p3",
@@ -21,7 +21,7 @@ export const PRODUCTS = [
         price: 1799.0,
         rating: 4.7,
         tag: "Novo",
-        image: "https://via.placeholder.com/600?text=Produto+3",
+        image: "./assets/curvyMonitor.jpg",
     },
     {
         id: "p4",
@@ -29,7 +29,7 @@ export const PRODUCTS = [
         price: 899.0,
         rating: 4.2,
         tag: "Promo",
-        image: "https://via.placeholder.com/600?text=Produto+4",
+        image: "./assets/gamingChair.jpg",
     },
     {
         id: "p5",
@@ -37,7 +37,7 @@ export const PRODUCTS = [
         price: 219.0,
         rating: 4.5,
         tag: "Novo",
-        image: "https://via.placeholder.com/600?text=Produto+5",
+        image: "./assets/mouseWireless.jpg",
     },
     {
         id: "p6",
@@ -45,6 +45,6 @@ export const PRODUCTS = [
         price: 419.0,
         rating: 4.8,
         tag: "Promo",
-        image: "https://via.placeholder.com/600?text=Produto+6",
+        image: "./assets/ssdNvme.jpg",
     },
 ];

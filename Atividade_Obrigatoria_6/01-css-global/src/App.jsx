@@ -1,49 +1,20 @@
-import { useState } from "react";
+import React from "react";
+import Navbar from "./components/Navbar";
+import ProductCard from "./components/ProductCard";
+import { PRODUCTS } from "../../data/products";
+import "./index.css";
 
-// Importa todas as 4 versões
-import GlobalApp from "./01-css-global/App";
-// import ModulesApp from "./02-css-modules/App";
-// import TailwindApp from "./03-tailwind/App";
-// import StyledApp from "./04-styled-components/App";
-
-export default function App() {
-    const [style, setStyle] = useState("tailwind");
-
-    return (
-        <div>
-            {/* Menu fixo para trocar estilo */}
-            <div style={{
-                position: "fixed",
-                top: 10,
-                left: 10,
-                zIndex: 100,
-                background: "#fff",
-                padding: "10px 16px",
-                borderRadius: "8px",
-                boxShadow: "0 2px 6px rgba(0,0,0,0.15)"
-            }}>
-                <label htmlFor="style">Selecione o estilo:</label>
-                <select
-                    id="style"
-                    value={style}
-                    onChange={(e) => setStyle(e.target.value)}
-                    style={{ marginLeft: "8px" }}
-                >
-                    <option value="global">CSS Global</option>
-                    <option value="modules">CSS Modules</option>
-                    <option value="tailwind">Tailwind CSS</option>
-                    <option value="styled">styled-components</option>
-                </select>
-            </div>
-
-            {/* Renderiza a versão escolhida */}
-            <div>
-                {style === "global" && <GlobalApp />}
-                {style === "modules" && <ModulesApp />}
-                {style === "tailwind" && <TailwindApp />}
-                {style === "styled" && <StyledApp />}
-            </div>
+export default function GlobalCss(){
+  return (
+    <div>
+      <Navbar cartCount={2}/>
+      <main className="app-shell container">
+        <div className="grid" role="list">
+          {PRODUCTS.map(p => (
+            <div role="listitem" key={p.id}><ProductCard product={p}/></div>
+          ))}
         </div>
-    );
+      </main>
+    </div>
+  )
 }
-
