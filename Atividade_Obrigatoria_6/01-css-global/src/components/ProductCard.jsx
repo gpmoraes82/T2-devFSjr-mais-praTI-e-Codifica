@@ -3,7 +3,18 @@ import Button from "./Button";
 import { Skeleton } from "./Skeleton";
 
 export default function ProductCard({ product }) {
+    // const [loading, setLoading] = useState(true);
+
     const [loading, setLoading] = useState(true);
+    const [failed, setFailed] = useState(false);
+
+    const handleLoad = () => setLoading(false);
+    const handleError = () => {
+        setFailed(true);
+        setLoading(false);
+    };
+
+    const imgSrc = failed ? "https://placehold.co/600x400?text=Carregando%20" : product.image;
 
     return (
         <article
@@ -15,18 +26,31 @@ export default function ProductCard({ product }) {
             <div className="card-media">
                 {loading && <Skeleton width="100%" height="100%" borderRadius="8px" />}
                 <img
-                    loading="lazy"
+                    // src={product.image}
+                    src={imgSrc}
                     alt={product.title}
-                    src={product.image}
-                    onLoad={() => setLoading(false)}
-                    style={{
-                        opacity: loading ? 0 : 1,
-                        transition: "opacity 3s ease",
-                        width: "100%",
-                        height: "100%",
-                        objectFit: "cover",
+                    loading="lazy"
+                    onLoad={handleLoad}
+					onError={handleError}
+					style={{
+						opacity: loading ? 0 : 1,
+						transition: "opacity 3s ease",
+						// position: "absolute",
+						// inset: 0,
+						width: "100%",
+						height: "100%",
+						objectFit: "cover",
                         borderRadius: "8px"
-                    }}
+					}}
+                    // onLoad={() => setLoading(false)}
+                    // style={{
+                    //     opacity: loading ? 0 : 1,
+                    //     transition: "opacity 3s ease",
+                    //     width: "100%",
+                    //     height: "100%",
+                    //     objectFit: "cover",
+                    //     borderRadius: "8px"
+                    // }}
                 />
             </div>
 
