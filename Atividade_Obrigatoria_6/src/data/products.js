@@ -1,3 +1,10 @@
+import headPhones from "../assets/headPhones.jpg";
+import keyboard from "../assets/keyboard.jpg";
+import curvyMonitor from "../assets/curvyMonitor.jpg";
+import gamingChair from "../assets/gamingChair.jpg";
+import mouseWireless from "../assets/mouseWireless.jpg";
+import ssdNvme from "../assets/ssdNvme.jpg";
+
 export const PRODUCTS = [
     {
         id: "p1",
@@ -5,7 +12,7 @@ export const PRODUCTS = [
         price: 499.9,
         rating: 4.6,
         tag: "Novo",
-        image: "./assets/headPhones.jpg",
+        image: headPhones,
     },
     {
         id: "p2",
@@ -13,7 +20,7 @@ export const PRODUCTS = [
         price: 349.0,
         rating: 4.4,
         tag: "Promo",
-        image: "./assets/keyboard.jpg",
+        image: keyboard,
     },
     {
         id: "p3",
@@ -21,7 +28,7 @@ export const PRODUCTS = [
         price: 1799.0,
         rating: 4.7,
         tag: "Novo",
-        image: "./assets/curvyMonitor.jpg",
+        image: curvyMonitor,
     },
     {
         id: "p4",
@@ -29,7 +36,7 @@ export const PRODUCTS = [
         price: 899.0,
         rating: 4.2,
         tag: "Promo",
-        image: "./assets/gamingChair.jpg",
+        image: gamingChair,
     },
     {
         id: "p5",
@@ -37,7 +44,7 @@ export const PRODUCTS = [
         price: 219.0,
         rating: 4.5,
         tag: "Novo",
-        image: "./assets/mouseWireless.jpg",
+        image: mouseWireless,
     },
     {
         id: "p6",
@@ -45,6 +52,6 @@ export const PRODUCTS = [
         price: 419.0,
         rating: 4.8,
         tag: "Promo",
-        image: "./assets/ssdNvme.jpg",
+        image: ssdNvme,
     },
 ];

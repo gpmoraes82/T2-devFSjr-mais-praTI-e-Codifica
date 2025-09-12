@@ -21,12 +21,10 @@ const App = () => {
   };
 
   return (
-    <div className={`app`}>
+    <div className="app">
       <Navbar toggleTheme={toggleTheme} theme={theme} cartCount={2} />
       <div className="grid">
-        {PRODUCTS.map((p) => (
-          <ProductCard key={p.id} product={p} />
-        ))}
+        {PRODUCTS.map(p => <ProductCard key={p.id} product={p} />)}
       </div>
     </div>
   );
