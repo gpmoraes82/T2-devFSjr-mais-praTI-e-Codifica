@@ -6,10 +6,10 @@ const ProductCard = ({ product }) => {
     const [loading, setLoading] = useState(true);
 
     const handleImageLoad = () => {
-        // simula atraso de 200ms
+        // simula atraso de 3000ms
         setTimeout(() => {
             setLoading(false);
-        }, 1000);
+        }, 3000);
     };
 
     return (
