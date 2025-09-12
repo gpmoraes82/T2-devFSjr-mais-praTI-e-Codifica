@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import Navbar from "./components/Navbar";
-import ProductCard from "./components/ProductCard";
+import Navbar from "./components/Navbar/Navbar.jsx";
+import ProductCard from "./components/ProductCard/ProductCard.jsx";
 import { PRODUCTS } from "../../data/products.js";
 import styles from "./App.module.css";
 import "./index.css"; // tokens + reset
-import { Skeleton } from "./components/Skeleton";
+import { Skeleton } from "./components/Skeleton/Skeleton.jsx";
 
 /*
  App: simula atraso (loading) e exibe 6 produtos.

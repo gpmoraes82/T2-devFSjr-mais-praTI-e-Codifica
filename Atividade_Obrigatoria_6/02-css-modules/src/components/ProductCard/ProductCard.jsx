@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styles from "./ProductCard.module.css";
-import Button from "./Button";
-import { Skeleton } from "./Skeleton";
+import Button from "../Button/Button.jsx";
+import { Skeleton } from "../Skeleton/Skeleton";
 
 export default function ProductCard({ product }) {
 	const [loading, setLoading] = useState(true);
