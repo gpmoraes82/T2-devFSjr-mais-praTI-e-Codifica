@@ -11,25 +11,25 @@ import { Skeleton } from "./components/Skeleton";
  Skeletons usados sem layout shift.
 */
 export default function App() {
-  const [loading, setLoading] = useState(true);
+	const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const t = setTimeout(() => setLoading(false), 1000); // atraso simulado
-    return () => clearTimeout(t);
-  }, []);
+	useEffect(() => {
+		const t = setTimeout(() => setLoading(false), 1000); // atraso simulado
+		return () => clearTimeout(t);
+	}, []);
 
-  return (
-    <>
-      <Navbar cartCount={3} />
-      <main className={styles.container} role="main">
-        <section className={styles.grid} aria-live="polite" aria-busy={loading}>
-          {loading
-            ? Array.from({ length: 6 }).map((_, i) => (
-                <Skeleton key={i} width="100%" height="100%" />
-              ))
-            : PRODUCTS.map((p) => <ProductCard key={p.id} product={p} />)}
-        </section>
-      </main>
-    </>
-  );
+	return (
+		<>
+			<Navbar cartCount={3} />
+			<main className={styles.container} role="main">
+				<section className={styles.grid} aria-live="polite" aria-busy={loading}>
+					{loading
+						? Array.from({ length: 6 }).map((_, i) => (
+							<Skeleton key={i} width="100%" height="100%" />
+						))
+						: PRODUCTS.map((p) => <ProductCard key={p.id} product={p} />)}
+				</section>
+			</main>
+		</>
+	);
 }

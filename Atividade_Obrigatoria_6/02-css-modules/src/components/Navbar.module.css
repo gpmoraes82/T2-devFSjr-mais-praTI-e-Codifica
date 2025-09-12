@@ -1,31 +1,41 @@
 .nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 64px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding: 0 1rem;
-  background: linear-gradient(90deg, rgba(255,255,255,0.7), rgba(255,255,255,0.45));
-  backdrop-filter: blur(6px);
-  border-bottom: 1px solid rgba(15,23,42,0.04);
-  z-index: 40;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.45));
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid rgba(15, 23, 42, 0.04);
+    z-index: 40;
 }
 
 [data-theme="dark"] .nav {
-  background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-  border-bottom: 1px solid rgba(255,255,255,0.04);
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
 }
 
-.logo { font-weight:700; letter-spacing:0.2px; color: var(--primary); }
-.controls { display:flex; gap:0.75rem; align-items:center; }
+.logo {
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    color: var(--primary);
+}
+
+.controls {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+}
+
 .badge {
-  background: var(--danger);
-  color: white;
-  font-size: 12px;
-  border-radius: 999px;
-  padding: 2px 6px;
-  margin-left: 6px;
+    background: var(--danger);
+    color: white;
+    font-size: 12px;
+    border-radius: 999px;
+    padding: 2px 6px;
+    margin-left: 6px;
 }
