@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import CSSGlobalApp from "./01-css-global/App";
 import CSSModulesApp from "./02-css-modules/App";
 import TailwindApp from "./03-tailwind/App";
-// import StyledComponentsApp from "./04-styled-components/App";
+import StyledComponentsApp from "./04-styled-components/App";
 
 const SelectorApp = () => {
     const [version, setVersion] = useState("css-global");
