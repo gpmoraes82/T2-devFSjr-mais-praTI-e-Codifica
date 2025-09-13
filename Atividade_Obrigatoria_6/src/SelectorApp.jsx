@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 // Import das versões
 import CSSGlobalApp from "./01-css-global/App";
-// import CSSModulesApp from "./02-css-modules/App";
+import CSSModulesApp from "./02-css-modules/App";
 // import TailwindApp from "./03-tailwind/App";
 // import StyledComponentsApp from "./04-styled-components/App";
 
