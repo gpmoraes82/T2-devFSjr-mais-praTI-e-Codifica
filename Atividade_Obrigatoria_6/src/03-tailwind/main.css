@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* tokens auxiliares (se quiser sobrescrever) */
+:root {
+    --radius: 0.5rem;
+}
+
+/* focus ring acessível padrão */
+.btn-focus:focus {
+    outline: 4px solid rgba(37, 99, 235, 0.18);
+    /* primary faint ring */
+    outline-offset: 2px;
+}
+
+/* small helper to avoid layout shift: image container preserves aspect */
+.card-img-wrapper {
+    position: relative;
+}

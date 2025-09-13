@@ -1,41 +1,57 @@
-import { useState, useEffect } from "react";
+import React, { useState } from "react";
+import Button from "./Button";
+import Skeleton from "./Skeleton";
 
+/**
+ * ProductCard behavior:
+ * - shows Skeleton (aspect preserved) while loading true
+ * - image always requested by browser (no display:none), but hidden via opacity + absolute to guarantee onLoad fires
+ * - onLoad -> waits 200ms -> setLoading(false)
+ */
 export default function ProductCard({ product }) {
-    const [loaded, setLoaded] = useState(false);
+    const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        const timer = setTimeout(() => setLoaded(true), 150 + Math.random() * 100);
-        return () => clearTimeout(timer);
-    }, []);
+    const handleImageLoad = () => {
+        setTimeout(() => setLoading(false), 200); // 200ms simulated delay
+    };
+
+    const ratingInt = Math.round(product.rating);
+    const isNew = product.tag.toLowerCase() === "novo";
 
     return (
-        <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 flex flex-col gap-2 hover:shadow-lg transition-transform hover:-translate-y-1">
-            {loaded ? (
+        <article className="relative group bg-white dark:bg-bgdark border border-slate-200 dark:border-slate-700 rounded-md p-4 transition transform duration-200 hover:-translate-y-1 hover:shadow-card-hover focus-within:ring-4 focus-within:ring-primary/10" tabIndex="0" aria-labelledby={`title-${product.id}`}>
+            {/* image container keeps aspect */}
+            <div className="card-img-wrapper mb-3 relative">
+                {loading && <Skeleton />}
                 <img
                     src={product.image}
                     alt={product.title}
-                    className="w-full aspect-square object-cover rounded-md"
+                    loading="lazy"
+                    onLoad={handleImageLoad}
+                    className={`rounded-md w-full aspect-square object-cover transition-opacity duration-200 ${loading ? 'opacity-0 absolute inset-0' : 'opacity-100 relative'}`}
                 />
-            ) : (
-                <div className="w-full aspect-square bg-gray-300 dark:bg-gray-700 rounded-md animate-pulse" />
-            )}
+                {/* Tag */}
+                <span className={`absolute top-2 left-2 text-xs font-semibold px-2 py-1 rounded-md ${isNew ? 'bg-tagnew text-white' : 'bg-tagpromo text-white'}`}>
+                    {product.tag}
+                </span>
+            </div>
 
-            <h3 className="text-sm font-semibold line-clamp-2">{product.title}</h3>
-            <p className="text-gray-600 dark:text-gray-300 font-medium">
-                R$ {product.price.toFixed(2)}
-            </p>
-            <p className="text-yellow-500">⭐ {product.rating}</p>
+            <h3 id={`title-${product.id}`} className="text-sm font-medium leading-tight mb-1 h-[2.4em] overflow-hidden" title={product.title}>
+                {product.title}
+            </h3>
 
-            <span
-                className={`inline-block px-2 py-1 rounded text-xs font-bold text-white ${product.tag === "Novo" ? "bg-green-500" : "bg-yellow-500"
-                    }`}
-            >
-                {product.tag}
-            </span>
+            <div className="flex items-center justify-between gap-2 mb-3">
+                <div className="text-sm font-semibold">${product.price.toFixed(2)}</div>
+                <div aria-label={`Avaliação: ${product.rating} de 5`} title={`${product.rating} de 5`} className="text-yellow-500" >
+                    {'★'.repeat(ratingInt)}
+                </div>
+            </div>
 
-            <button className="mt-2 px-3 py-1 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition">
-                Comprar
-            </button>
-        </div>
+            <div className="flex items-center gap-2">
+                <Button variant="solid" aria-label={`Adicionar ${product.title} ao carrinho`}>Adicionar</Button>
+                <Button variant="outline" aria-label={`Mais opções para ${product.title}`}>Opções</Button>
+                <Button variant="ghost" aria-label={`Favoritar ${product.title}`}>☆</Button>
+            </div>
+        </article>
     );
 }

@@ -1,26 +1,35 @@
-import { useState, useEffect } from "react";
+import React from "react";
 
-export default function Navbar() {
-    const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
-
-    useEffect(() => {
-        document.documentElement.classList.remove("light", "dark");
-        document.documentElement.classList.add(theme);
-        localStorage.setItem("theme", theme);
-    }, [theme]);
-
+export default function Navbar({ theme, setTheme }) {
     return (
-        <nav className="flex justify-between items-center px-4 py-3 sticky top-0 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 shadow-sm z-10">
-            <h1 className="font-bold text-xl text-blue-600">Loja React</h1>
-            <div className="flex items-center gap-4">
-                <button
-                    onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-                    className="px-3 py-1 rounded-lg border border-blue-600 bg-blue-600 text-white hover:bg-blue-700 transition"
-                >
-                    {theme === "light" ? "🌙 Dark" : "☀️ Light"}
-                </button>
-                <span className="px-3 py-1 rounded-lg bg-blue-600 text-white">🛒 0</span>
+        <header className="sticky top-0 z-50 bg-white/90 dark:bg-bgdark/90 backdrop-blur-sm border-b border-slate-200 dark:border-slate-700">
+            <div className="max-w-7xl mx-auto flex items-center justify-between p-4">
+                <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-md bg-primary flex items-center justify-center text-white font-bold select-none">L</div>
+                    <h1 className="text-lg font-semibold">MyShop</h1>
+                </div>
+
+                <div className="flex items-center gap-3">
+                    <button
+                        aria-pressed={theme === "dark"}
+                        aria-label="Alternar tema claro/escuro"
+                        onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                        className="inline-flex items-center px-3 py-1.5 rounded-md border border-primary bg-primary text-white hover:bg-primary-dark focus:outline-none focus:ring-4 focus:ring-primary/20 transition duration-200"
+                    >
+                        {theme === "dark" ? "☀️ Claro" : "🌙 Escuro"}
+                    </button>
+
+                    <button
+                        className="relative inline-flex items-center px-3 py-1.5 rounded-md bg-primary text-white focus:outline-none focus:ring-4 focus:ring-primary/20"
+                        aria-label="Itens no carrinho"
+                        title="Itens no carrinho"
+                    >
+                        <span className="mr-2">🛒</span>
+                        <span className="sr-only">Itens no carrinho:</span>
+                        <span aria-hidden>2</span>
+                    </button>
+                </div>
             </div>
-        </nav>
+        </header>
     );
 }
