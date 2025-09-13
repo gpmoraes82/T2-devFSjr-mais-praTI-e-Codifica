@@ -1,7 +1,7 @@
 import React from "react";
 
 /**
- * variant: 'solid' | 'outline' | 'ghost'
+ * variantes: 'solid' | 'outline' | 'ghost'
  */
 export default function Button({ children, variant = "solid", disabled = false, ...rest }) {
     const base = "inline-flex items-center justify-center px-3 py-2 rounded-md text-sm font-medium transition duration-200 focus:outline-none focus:ring-4 focus:ring-primary/20";

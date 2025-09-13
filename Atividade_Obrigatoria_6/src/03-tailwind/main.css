@@ -14,7 +14,7 @@
     outline-offset: 2px;
 }
 
-/* small helper to avoid layout shift: image container preserves aspect */
+/* container que preservas o aspect da imagem */
 .card-img-wrapper {
     position: relative;
 }
