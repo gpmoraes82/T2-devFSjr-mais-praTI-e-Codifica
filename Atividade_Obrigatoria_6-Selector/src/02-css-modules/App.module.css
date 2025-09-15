@@ -1,0 +1,33 @@
+.app {
+    padding: 1rem;
+}
+
+.grid {
+    display: grid;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+@media (max-width:480px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (min-width:481px) and (max-width:768px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width:769px) and (max-width:1024px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width:1025px) {
+    .grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}

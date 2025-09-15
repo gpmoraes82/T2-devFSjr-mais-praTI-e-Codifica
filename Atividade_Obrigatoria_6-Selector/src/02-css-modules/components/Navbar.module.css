@@ -1,0 +1,46 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    background-color: inherit;
+    z-index: 1000;
+    border-bottom: 1px solid #ccc;
+}
+
+.logo {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.button {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #2563eb;
+    background-color: #2563eb;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.button:hover {
+    background-color: #1d4ed8;
+}
+
+.button:focus {
+    outline: 3px solid #1d4ed8;
+}
+
+.cartBadge {
+    padding: 0.5rem 1rem;
+    background-color: #2563eb;
+    color: #fff;
+    border-radius: 0.5rem;
+}

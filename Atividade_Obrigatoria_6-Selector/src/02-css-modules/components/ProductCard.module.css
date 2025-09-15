@@ -1,0 +1,58 @@
+.card {
+    background-color: inherit;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.hiddenImg {
+    opacity: 0;
+    position: absolute;
+}
+
+.visibleImg {
+    opacity: 1;
+    position: relative;
+}
+
+.title {
+    font-size: 1rem;
+    line-height: 1.2;
+    max-height: 2.4em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.tag {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+.novo {
+    background-color: #10b981;
+}
+
+.promo {
+    background-color: #f59e0b;
+}
