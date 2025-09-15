@@ -1,5 +1,13 @@
-import React from "react";
+import '../styles/global.css';
 
-export default function Skeleton({ className = "" }) {
-  return <div className={`skeleton ${className}`} aria-hidden="true"></div>;
-}
+const Skeleton = ({ width = '100%', height = '1rem', borderRadius = 'var(--border-radius-md)' }) => {
+    return (
+        <div
+            className="skeleton"
+            style={{ width, height, borderRadius }}
+            aria-hidden="true"
+        ></div>
+    );
+};
+
+export default Skeleton;

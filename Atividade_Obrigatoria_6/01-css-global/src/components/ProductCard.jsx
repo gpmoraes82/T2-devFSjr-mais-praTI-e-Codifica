@@ -1,95 +1,92 @@
-import { useState, useEffect } from "react";
-import Button from "./Button";
-import Skeleton from "./Skeleton";
+import { useState } from 'react';
+import '../styles/global.css';
+import Button from './Button';
+import Skeleton from './Skeleton';
 
+const ProductCard = ({ product, loading = false, onAddToCart }) => {
+    const [imageLoaded, setImageLoaded] = useState(false);
+    const [imageError, setImageError] = useState(false);
 
-export default function ProductCard({ product }) {
-    const [loading, setLoading] = useState(true);
-    const [imgLoaded, setImgLoaded] = useState(false);
+    const handleImageLoad = () => {
+        setImageLoaded(true);
+    };
 
-    function handleAdd() {
-        setLoading(true);
-        setTimeout(() => {
-            setLoading(false);
-            alert(`${product.title} adicionado ao carrinho`);
-        }, 900);
+    const handleImageError = () => {
+        setImageError(true);
+        setImageLoaded(true);
+    };
+
+    if (loading) {
+        return (
+            <div className="product-card" aria-hidden="true">
+                <div className="product-image-container">
+                    <Skeleton width="100%" height="100%" />
+                </div>
+                <div className="product-info">
+                    <Skeleton width="80%" height="1.25rem" />
+                    <Skeleton width="60%" height="1rem" />
+                    <Skeleton width="40%" height="1rem" />
+                    <Skeleton width="100%" height="2.5rem" borderRadius="var(--border-radius-md)" />
+                </div>
+            </div>
+        );
     }
 
-    // simular atraso
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setLoading(false);
-        }, 1500);
-        return () => clearTimeout(timer);
-    }, []);
-
     return (
-        <div className="card">
-            <div className="card__media">
-                {loading && <div className="skeleton skeleton-img" />}
-
-                {!loading && (
+        <div className="product-card">
+            <div className="product-image-container">
+                {!imageLoaded && !imageError && (
+                    <Skeleton width="100%" height="100%" />
+                )}
+                {imageError ? (
+                    <div className="product-image-placeholder">
+                        <span>Imagem não disponível</span>
+                    </div>
+                ) : (
                     <img
                         src={product.image}
                         alt={product.title}
                         loading="lazy"
-                        className={`card__img ${imgLoaded ? "is-visible" : "is-hidden"}`}
-                        onLoad={() => setImgLoaded(true)}
+                        onLoad={handleImageLoad}
+                        onError={handleImageError}
+                        className={imageLoaded ? 'product-image loaded' : 'product-image'}
                     />
                 )}
-
                 {product.tag && (
-                    <span
-                        className={`card__tag ${product.tag === "Promo" ? "card__tag--promo" : ""
-                            }`}
-                    >
+                    <span className={`product-tag ${product.tag.toLowerCase()}`}>
                         {product.tag}
                     </span>
                 )}
             </div>
-
-            {/* <div className="card__body">
-                <h2 className="card__title">{product.title}</h2>
-                <p className="card__price">${product.price}</p>
-                <p className="card__rating">{"★".repeat(product.rating)}</p>
-            </div> */}
-
-            <div className="card__body">
-                <h3
-                    id={`title-${product.id}`}
-                    className="card__title"
-                    title={product.title}
-                >
+            <div className="product-info">
+                <h3 className="product-title" title={product.title}>
                     {product.title}
                 </h3>
-
-                <div className="card__meta">
-                    <div className="card__price">R$ {product.price.toFixed(2)}</div>
-                    <div
-                        className="card__rating"
-                        aria-label={`Avaliação ${product.rating} de 5`}
-                    >
-                        ★ {product.rating.toFixed(1)}
-                    </div>
+                <div className="product-price">
+                    R$ {product.price.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                 </div>
-
-                <div className="card__actions">
-                    <Button variant="outline" ariaLabel={`Ver ${product.title}`}>
-                        Ver
-                    </Button>
-                    <Button
-                        variant="solid"
-                        onClick={handleAdd}
-                        ariaLabel={`Adicionar ${product.title}`}
-                        loading={loading}
-                    >
-                        Adicionar
-                    </Button>
-                    <Button variant="ghost" ariaLabel={`Mais opções sobre ${product.title}`}>
-                        ⋯
-                    </Button>
+                <div className="product-rating">
+                    {Array.from({ length: 5 }, (_, i) => (
+                        <span
+                            key={i}
+                            className={i < Math.floor(product.rating) ? 'star filled' : 'star'}
+                            aria-hidden="true"
+                        >
+                            ★
+                        </span>
+                    ))}
+                    <span className="sr-only">Avaliação: {product.rating} de 5 estrelas</span>
                 </div>
+                <Button
+                    variant="solid"
+                    onClick={() => onAddToCart(product)}
+                    aria-label={`Adicionar ${product.title} ao carrinho`}
+                >
+                    Adicionar ao carrinho
+                </Button>
             </div>
         </div>
     );
-}
+};
+
+export default ProductCard;
