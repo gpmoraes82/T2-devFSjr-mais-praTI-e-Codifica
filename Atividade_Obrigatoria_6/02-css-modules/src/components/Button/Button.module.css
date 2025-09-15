@@ -1,0 +1,82 @@
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: 1px solid transparent;
+    border-radius: var(--border-radius-md);
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    cursor: pointer;
+    transition: var(--transition);
+    min-width: 80px;
+}
+
+.btn:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+.btnSolid {
+    background-color: var(--accent);
+    color: white;
+}
+
+.btnSolid:hover:not(:disabled) {
+    background-color: var(--accent-hover);
+}
+
+.btnOutline {
+    background-color: transparent;
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.btnOutline:hover:not(:disabled) {
+    background-color: var(--accent);
+    color: white;
+}
+
+.btnGhost {
+    background-color: transparent;
+    color: var(--accent);
+}
+
+.btnGhost:hover:not(:disabled) {
+    background-color: rgba(13, 110, 253, 0.1);
+}
+
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.btnLoading {
+    position: relative;
+    color: transparent;
+}
+
+.btnLoading::after {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 50%;
+    left: 50%;
+    margin: -8px 0 0 -8px;
+    border: 2px solid transparent;
+    border-top-color: currentColor;
+    border-radius: 50%;
+    animation: buttonLoadingSpinner 0.7s linear infinite;
+}
+
+@keyframes buttonLoadingSpinner {
+    from {
+        transform: rotate(0turn);
+    }
+
+    to {
+        transform: rotate(1turn);
+    }
+}
