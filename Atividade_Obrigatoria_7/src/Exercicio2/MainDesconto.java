@@ -17,11 +17,11 @@ public class MainDesconto {
         testarDesconto("Fone de Ouvido", 200.00, 15, 0.0);
 
         // Caso 4: Desconto negativo (inválido)
-        System.out.println("\n4. DESCONTO NEGATIVO (INVÁLIDO):");
+        System.out.println("\n4. DESCONTO NEGATIVO (INVÁLIDO ❌):");
         testarDescontoInvalido("Mouse", 89.90, 20, -10.0);
 
         // Caso 5: Desconto acima do limite (inválido)
-        System.out.println("\n5. DESCONTO ACIMA DO LIMITE (INVÁLIDO):");
+        System.out.println("\n5. DESCONTO ACIMA DO LIMITE (INVÁLIDO ❌):");
         testarDescontoInvalido("Teclado", 150.00, 8, 60.0);
 
         // Caso 6: Múltiplos descontos sequenciais
