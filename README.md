@@ -1,5 +1,6 @@
 # Listas de exercícios obrigatórios
 * As listas obrigatórias serão adicionadas conforme solicitado dentro deste repositório
+* Vão de 1 a 7 entre Listas e Atividades
 
 ## Lista 1 de exercícios obrigatórios
 * Exercícios que contemplam as operações fundamentais, estruturas de controle condicional e de repetição.
