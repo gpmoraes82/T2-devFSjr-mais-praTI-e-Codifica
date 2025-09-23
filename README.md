@@ -31,14 +31,10 @@
         3. **Tailwind CSS** → `03-tailwind/`
         4. **styled-components** → `04-styled-components/`
 
-
-
-## Pré-requisitos para execução
-
+### Pré-requisitos para execução
 ### Node.js: https://nodejs.org/
 * v22.14.0
-
-## Executando o código
+### Executando o código
 - Após clonar este repositório vá até o diretorio <code>/T2-devFSjr-mais-praTI-e-Codifica</code> <br>
 Após escolher a atividade que gostaria de verificar entre no diretório e instale as dependências <pre><code>npm install</code></pre>
 - Para executar o programas em Node.JS dentro deste diretorio, execute o comando <pre><code>node < nome do arquivo >.js</code></pre>
@@ -46,3 +42,20 @@ Após escolher a atividade que gostaria de verificar entre no diretório e insta
 - Ao verificar a Atividade 5 o arquivo .env-SUA_API_KEY deve ser renomeado para apenas .env e adicionada a api key no local designado
 - Para executar a Atividade 6 utilize o procedimento padrão ao inicio do tópico Executando o código
 
+## Atividade 7 obrigatóra
+* Atividade que contempla:
+    - Este projeto implementa **a mesma tela** em quatro técnicas de estilização diferentes:
+        1. **CSS Global** → `01-css-global/`
+        2. **CSS Modules** → `02-css-modules/`
+        3. **Tailwind CSS** → `03-tailwind/`
+        4. **styled-components** → `04-styled-components/`
+     
+### Pré-requisitos para execução
+### Java: https://www.oracle.com/br/java/technologies/downloads/#java21
+* Java 21
+### IntelliJ: https://www.jetbrains.com/idea/download/?section=windows
+### Executando o código
+- Instalar o Java 21
+- Instalar a IDE de escolha, IntelliJ é recomendada
+- Após clonar este repositório vá até o diretorio <code>/T2-devFSjr-mais-praTI-e-Codifica</code> <br>
+Após, abrir a Atividade_Obrigatoria 7 dentro de sua IDE de escolha, IntelliJ é recomendada
